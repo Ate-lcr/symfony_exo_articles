@@ -1,0 +1,31 @@
+{% if article.isPublished %}
+    <div class="card">
+        <div>
+            <div class="card-global">
+                <div class="card-img">
+                    <img src="{{article.image}}" width="400" alt="">
+                </div>
+                <div class="card-txt">
+                    <h3>{{ article.title }}</h3>
+                    <p>Cet article a été publie le {{ "now"|date("m/d/Y") }}</p>
+                    <a class="btn" href= {{ path ('list_article', {'id': article.id}) }}>Lire plus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+    <div class="card">
+        <div>
+            <div class="card-global">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8fA%3D%3D&w=1000&q=80" width="400" height="200" alt="">
+                </div>
+                <div class="card-txt">
+                    <h3>Unpublished article</h3>
+                    <p>Cet article n'est pas publié</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

@@ -1,6 +1,7 @@
 {% include  '_header.html.twig' %}
 
-
-
+{% for article in articles [:3] %}
+    {% include  '_article.html.twig' %}
+{% endfor %}
 
 {% include  '_footer.html.twig' %}

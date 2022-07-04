@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html class="uk-align-center">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Welcome!</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="{{ asset('style.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="{{ asset('style.css')}}">
 
-    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-    {{ encore_entry_link_tags('app') }}
-    {{ encore_entry_script_tags('app') }}
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+
 </head>
 
 <header>
-    <nav class="uk-navbar-container" uk-navbar>
-        <div class="uk-navbar-left">
-            <ul class="uk-navbar-nav">
+    <nav>
+        <div class="menu">
+            <ul>
                 <li><a href="{{ path ('home')}}">Accueil</a></li>
                 <li><a href="{{ path ('list')}}">Liste des articles</a></li>
             </ul>
@@ -26,3 +21,4 @@
 </header>
 
 <body>
+<div class="article">

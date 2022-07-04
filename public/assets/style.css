@@ -1,0 +1,83 @@
+@font-face {
+    font-family: "Lato-Regular";
+    src: url("/fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Lato-Bold";
+    src: url("/fonts/Lato-Bold.ttf");
+}
+
+body {
+    font-family: "Lato-Regular", sans-serif;
+    font-size: 0.9rem;
+    text-align: center;
+
+}
+.article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.menu {
+    display: flex;
+    padding:0;
+    justify-content: center;
+}
+.menu li {
+    list-style-type: none ;
+
+}
+
+.menu ul {
+    padding: 0 ;
+
+}
+.menu a {
+    display:block;
+    min-width: 120px;
+    margin: 0.5rem;
+    padding: 0.4rem 0;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-family: "Lato-Regular", sans-serif;
+    font-weight: bold;
+}
+
+
+h3 {
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-size: 0.8rem
+}
+
+img {
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: -4px;
+}
+
+.card {
+    margin: 150px 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #bcbcc0;
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+}
+
+
+.btn {
+    background-color: #e1c307;
+    text-align: center;
+    border-radius: 3px;
+    padding: 10px 45px;
+    font-family: "Lato-Regular", sans-serif;
+    text-decoration: none;
+    color: whitesmoke;
+}
