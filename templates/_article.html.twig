@@ -7,7 +7,8 @@
                 </div>
                 <div class="card-txt">
                     <h3>{{ article.title }}</h3>
-                    <p>Cet article a été publie le {{ "now"|date("m/d/Y") }}</p>
+                    <p class="author">By: {{article.author}}</p>
+                    <p class="published">Cet article a été publie le {{ "now"|date("m/d/Y") }}</p>
                 </div>
                 <a class="btn" href= {{ path ('list_article', {'id': article.id}) }}>Lire plus</a>
             </div>

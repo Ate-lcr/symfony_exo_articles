@@ -7,3 +7,9 @@
 {% block main %}
     {% include  '_article.html.twig' %}
 {% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <span>© Ate.lcr | {{article.title}}</span>
+    </div>
+{% endblock %}

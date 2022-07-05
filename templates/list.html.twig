@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
 
+ {% block title %}
+     <title>Articles | La Piscine</title>
+ {% endblock %}
+
 
 {% block main %}
-
     {% for article in articles %}
         {% include  '_article.html.twig' %}
     {% endfor %}
-
 {% endblock %}
 
 
+{% block footer %}
+{% endblock %}

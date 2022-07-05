@@ -5,11 +5,18 @@
 
     <div class="form" style="text-align: center">
         <form method="get" action="{{ path('ageverif') }}">
-            <span>Quel est votre age ?</span>
+            <h1>Quel est votre age ?</h1>
             <br>
             <input type="text" name="id">
             <a href="{{ path('ageverif') }}" target="_blank"><input type="submit" value="Envoyer" /></a>
         </form>
     </div>
 
+{% endblock %}
+
+
+{% block footer %}
+    <div class="footer">
+        <span>© Ate.lcr | Home</span>
+    </div>
 {% endblock %}
