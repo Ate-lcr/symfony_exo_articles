@@ -52,11 +52,24 @@ class PageController extends AbstractController
      * @Route("/",name="home")
      */
     public function home(){
-        return $this->render('home.html.twig', [
-            "articles" => $this->articles,
-        ]);
+//
+                    return $this->render('home.html.twig');
+
     }
 
+    /**
+     * @Route("/age",name="ageverif")
+     */
+    public function age(){
+        if ($_GET['id'] >=17) {
+            return $this->render('homeArticles.html.twig', [
+                "articles" => $this->articles,
+            ]);
+        }
+        else {
+            return $this->render('out.html.twig');
+        }
+    }
 
     /**
      * @Route("/list",name="list")
