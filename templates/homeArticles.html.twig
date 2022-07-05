@@ -1,6 +1,11 @@
-{% include  '_header.html.twig' %}
+{% extends 'base.html.twig' %}
+
+
+
+{% block main %}
 
 {% for article in articles [:3] %}
     {% include  '_article.html.twig' %}
 {% endfor %}
-{% include  '_footer.html.twig' %}
+
+{% endblock %}

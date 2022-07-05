@@ -1,3 +1,6 @@
-{% include  '_header.html.twig' %}
-{% include  '_article.html.twig' %}
-{% include  '_footer.html.twig' %}
+{% extends 'base.html.twig' %}
+
+
+{% block main %}
+    {% include  '_article.html.twig' %}
+{% endblock %}

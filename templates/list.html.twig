@@ -1,7 +1,13 @@
-{% include  '_header.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% for article in articles %}
-    {% include  '_article.html.twig' %}
-{% endfor %}
 
-{% include  '_footer.html.twig' %}
+
+{% block main %}
+
+    {% for article in articles %}
+        {% include  '_article.html.twig' %}
+    {% endfor %}
+
+{% endblock %}
+
+

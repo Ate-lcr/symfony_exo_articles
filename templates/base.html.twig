@@ -1,63 +1,44 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 
-        <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
 
-        {% block stylesheets %}
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i&display=swap" rel="stylesheet" />
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        <header class="header">
-            <h1 class="visually-hidden">
-                Conference Guestbook
-            </h1>
 
-            <nav class="navbar navbar-expand-xl navbar-light bg-light">
-                <div class="container mt-4 mb-3">
-                        &#128217; Conference Guestbook
-                    </a>
+</head>
 
-                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#header-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Show/Hide navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+<header>
+    <nav>
+        <div class="menu">
+            <ul>
+                <li><a href="{{ path ('home')}}">Accueil</a></li>
+                <li><a href="{{ path ('list')}}">Liste des articles</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
-                    <div class="collapse navbar-collapse" id="header-menu">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item me-3">
-                                    Admin
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+<body>
+<div class="article">
 
-            <nav class="bg-light border-bottom">
-                <div class="container">
-                </div>
-            </nav>
-        </header>
 
-        <main role="main" class="container mt-5">
-            {% block body %}{% endblock %}
-        </main>
+<main>
 
-        <footer class="mt-7 px-3 py-5 text-center text-muted">
-            <p>
-                Conference Guestbook
-            </p>
-            <p>
-                <a href="#" class="text-white">Back to top</a>
-            </p>
-        </footer>
+{#    Bloc spécifique de la page à remplir à cette endroit #}
+    {% block main %}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </body>
+
+</main>
+
+
+</div>
+<script src="{{ asset('build/app.js') }}"></script>
+
+</body>
+
 </html>
