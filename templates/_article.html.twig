@@ -8,8 +8,8 @@
                 <div class="card-txt">
                     <h3>{{ article.title }}</h3>
                     <p>Cet article a été publie le {{ "now"|date("m/d/Y") }}</p>
-                    <a class="btn" href= {{ path ('list_article', {'id': article.id}) }}>Lire plus</a>
                 </div>
+                <a class="btn" href= {{ path ('list_article', {'id': article.id}) }}>Lire plus</a>
             </div>
         </div>
     </div>
