@@ -1,64 +1,80 @@
-@import '~bootstrap/scss/bootstrap';
-@import './variables';
+@font-face {
+    font-family: "Lato-Regular";
+    src: url("/assets/fonts/Lato-Regular.ttf");
+}
 
-body {
+@font-face {
+    font-family: "Lato-Bold";
+    src: url("/assets/fonts/Lato-Bold.ttf");
+}
+
+
+.article {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-a {
+.menu {
+    display: flex;
+    padding:0;
+    justify-content: center;
+}
+.menu li {
+    list-style-type: none ;
+
+}
+
+.menu ul {
+    padding: 0 ;
+
+}
+.menu a {
+    display:block;
+    min-width: 120px;
+    margin: 0.5rem;
+    padding: 0.4rem 0;
+    text-align: center;
     text-decoration: none;
+    color: black;
+    font-family: "Lato-Regular", sans-serif;
+    font-weight: bold;
 }
 
-main {
-    flex: 1;
-}
 
-.navbar-brand {
-    font-family: $font-family-title;
-    font-weight: $font-weight-normal;
-    font-size: 1.8rem;
-}
-
-.navbar-brand, .nav-link {
-    transition: all .15s;
-}
-
-.nav-conference {
-    display: inline-block;
-    padding: 5px 10px;
-    color: #666;
+h3 {
     text-transform: uppercase;
-    font-size: 0.8rem;
+    margin-top: 20px;
+    font-size: 0.8rem
 }
 
-.lift {
-    transition: box-shadow .25s ease,transform .25s ease;
-
-    &:focus, &:hover {
-        box-shadow: 0 1rem 2.5rem rgba(22,28,45,.1),0 .5rem 1rem -.75rem rgba(22,28,45,.1)!important;
-        transform: translate3d(0, -4px, 0);
-    }
+img {
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: -4px;
 }
 
-.comment-img {
-    width: 250px;
-    height: 150px;
+.card {
+    margin: 150px 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #bcbcc0;
+    padding-bottom: 30px;
+    padding-top: 30px;
 
-    img {
-        max-width: 250px;
-        max-height: 150px;
-    }
 }
 
-.comment-text {
-    font-size: 12px;
-    line-height: 15px;
-}
 
-footer {
-    background: #18171b;
+.btn {
+    background-color: #e1c307;
+    text-align: center;
+    border-radius: 3px;
+    padding: 10px 45px;
+    font-family: "Lato-Regular", sans-serif;
+    text-decoration: none;
+    color: whitesmoke;
 }
 
 .form {
