@@ -37,6 +37,11 @@ class Article
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $content;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Article
     public function setAuthor(string $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
 
         return $this;
     }
