@@ -54,16 +54,16 @@ class PageController extends AbstractController
     /**
      * @Route("/",name="home")
      */
-    public function home(){
-//
-                    return $this->render('home.html.twig');
+    public function home(): Response
+    {         return $this->render('home.html.twig');
 
     }
 
     /**
      * @Route("/age",name="ageverif")
      */
-    public function age(){
+    public function age(): Response
+    {
         if ($_GET['id'] >=17) {
             return $this->render('homeArticles.html.twig', [
                 "articles" => $this->articles,
@@ -77,7 +77,8 @@ class PageController extends AbstractController
     /**
      * @Route("/list",name="list")
      */
-    public function list(){
+    public function list(): Response
+    {
         return $this->render('list.html.twig', [
             "articles" => $this->articles,
         ]);
@@ -87,7 +88,8 @@ class PageController extends AbstractController
     /**
      * @Route("list/article/{id}", name="list_article")
      */
-    public function listArticle ($id){
+    public function listArticle ($id): Response
+    {
         $article=$this->articles[$id];
         
         return $this->render('listarticle.html.twig', [
