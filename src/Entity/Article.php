@@ -2,51 +2,74 @@
 
 namespace App\Entity;
 
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass=ArticleRepository::class)
  */
-
-
-//On crée dans Entity nos classes correspondant aux tables
-//On fait le mapping des $variables de cette classe qui corresponderont aux éléments de la table lié à cette entité.
-
 class Article
 {
-//    Concernant l'ID on utilise les 3 commandes suivantes pour le définir en primary key/autogenerate de type INT
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    public $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
-    public $title;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    public $image;
+    private $title;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    public $isPublished;
+    private $isPublished;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    public $author;
+    private $image;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function isIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 }
-
-//Pour créer le fichier de migration
-//"php bin/console make:migration"
-//
-//
-//pour le comparer avec ka bdd et faire les modifications
-//"php bin/console doctrine:migration:migrate"
