@@ -97,23 +97,4 @@ class PageController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route ("insert-article", name="insert_article")
-     */
-    //On crée un nouvel enregistrement dans la table article
-    #[NoReturn] public function insertArticle(EntityManagerInterface $entityManager){
-        $article = new article();
-
-//            J'utilise les setters pour en définir les attributs
-            $article->setTitle("Titre");
-            $article->setContent("lorem ipsum");
-            $article->setIsPublished(true);
-            $article->setAuthor("Me,myself and I");
-
-//            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
-            $entityManager->persist($article);
-            $entityManager->flush();
-
-            dump($article); die;
-    }
 }
