@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use JetBrains\PhpStorm\NoReturn;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,7 +36,14 @@ class CategoryController extends AbstractController
         dump($category); die;
     }
 
-//    public function deleteCategory(){
-//
-//    }
+    /**
+     * @Route("category", name="category")
+     */
+    public function showArticle(CategoryRepository $categoryRepository){
+//        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
+        $category = $categoryRepository->find(id:1);
+        dd($category);
+    }
+
+
 }
