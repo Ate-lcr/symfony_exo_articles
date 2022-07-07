@@ -24,18 +24,17 @@ class PageController extends AbstractController
     public function age(ArticleRepository $articleRepository)
     {
         if ($_GET['id'] >=17) {
-            $articles = $articleRepository->findAll();
-            $articlesCount = count($articles);
-            $lastItems = array_reverse(array_slice($articles, ($articlesCount - 3)));
+            $lastItems = $articleRepository->findBy([], ['id' => 'DESC'], 3);
 
             return $this->render('homeArticles.html.twig', [
-                "articles" => $articles,
                 'lastItems' => $lastItems
             ]);
         }
+
         else {
             return $this->render('out.html.twig');
         }
+
     }
 
 
