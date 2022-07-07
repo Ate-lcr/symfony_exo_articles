@@ -24,9 +24,9 @@ class CategoryController extends AbstractController
         $category = new Category();
 
 //            J'utilise les setters pour en définir les attributs
-        $category->setTitle("Titre");
-        $category->setColor("Lightblue");
-        $category->setDescription("Fun facts");
+        $category->setTitle("Eco");
+        $category->setColor("Lightgreen");
+        $category->setDescription("Ecology");
         $category->setisPublished(true);
 
 //            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
@@ -39,14 +39,14 @@ class CategoryController extends AbstractController
 
 //    Affichage d'une catégorie issue de ma bdd
     /**
-     * @Route("category", name="category")
+     * @Route("category/{id}", name="category")
      */
-    public function showCategory(CategoryRepository $categoryRepository){
+    public function showCategory(CategoryRepository $categoryRepository,$id){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
-        $category = $categoryRepository->find(1);
-        dd($category);
-    }
-
+        $category = $categoryRepository->find($id);
+        return $this->render('listcategory.html.twig', [
+            "category" => $category
+        ]);}
 
 
 //    Affichage de l'ensemble des catégories de ma bdd
@@ -55,7 +55,9 @@ class CategoryController extends AbstractController
      */
     public function showCategories (CategoryRepository $categoryRepository){
         $categories = $categoryRepository->findAll();
-        dd($categories);
+        return $this->render('listcategories.html.twig', [
+            "categories" => $categories,
+        ]);
     }
 
 }

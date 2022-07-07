@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+ {% block title %}
+     <title>{{category.title}}</title>
+ {% endblock %}
+
+{% block main %}
+    {% include  '_category.html.twig' %}
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <span>© Ate.lcr | {{category.title}}</span>
+    </div>
+{% endblock %}
+
+
+{% block script %}
+<link rel="script" href="public/script.js">
+{% endblock %}

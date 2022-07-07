@@ -1,0 +1,15 @@
+    <div class="card">
+        <div>
+            <div class="card-global">
+{#                <div class="card-img">#}
+{#                    <img src="{{article.image}}" width="400" alt="">#}
+{#                </div>#}
+                <div class="card-txt">
+                    <h3>{{ category.title }}</h3>
+                    <p class="author">Color: {{category.color}}</p>
+                    <p class="published">Description : {{category.description}}</p>
+                </div>
+                <a class="btn" href= {{ path ('category', {'id': category.id}) }}>Lire plus</a>
+            </div>
+        </div>
+    </div>
