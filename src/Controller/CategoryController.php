@@ -34,4 +34,8 @@ class CategoryController extends AbstractController
 
         dump($category); die;
     }
+
+//    public function deleteCategory(){
+//
+//    }
 }

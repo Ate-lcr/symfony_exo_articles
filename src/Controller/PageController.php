@@ -91,10 +91,12 @@ class PageController extends AbstractController
     public function listArticle ($id): Response
     {
         $article=$this->articles[$id];
-        
+
         return $this->render('listarticle.html.twig', [
             "article" => $article
         ]);
     }
+
+
 
 }

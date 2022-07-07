@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use JetBrains\PhpStorm\NoReturn;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,5 +35,15 @@ class ArticleController extends AbstractController
         $entityManager->flush();
 
         dump($article); die;
+    }
+
+
+    /**
+     * @Route("article", name="article")
+     */
+    public function showArticle(ArticleRepository $articleRepository){
+//        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
+        $article = $articleRepository->find(id:1);
+        dd($article);
     }
 }
