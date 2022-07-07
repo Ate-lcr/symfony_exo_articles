@@ -39,13 +39,14 @@ class ArticleController extends AbstractController
 
 
     /**
-     * @Route("article", name="article")
+     * @Route("article/{id}", name="article")
      */
-    public function showArticle(ArticleRepository $articleRepository){
+    public function showArticle(ArticleRepository $articleRepository, $id){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
-        $article = $articleRepository->find(1);
-        dd($article);
-    }
+        $article = $articleRepository->find($id);
+        return $this->render('listarticle.html.twig', [
+            "article" => $article
+        ]);    }
 
 
     /**
@@ -53,7 +54,11 @@ class ArticleController extends AbstractController
      */
     public function showArticles (ArticleRepository $articleRepository){
         $articles = $articleRepository->findAll();
-        dd($articles);
+        return $this->render('list.html.twig', [
+            "articles" => $articles,
+        ]);
     }
+
+
 
 }
