@@ -17,6 +17,7 @@ class PageController extends AbstractController
 {
 
 //    Route vers liste articles après verif d'age et récupération en _GET'
+//    On rajoute de quoi afficher uniquement les 3 derniers articles avec un array reverse
     /**
      * @Route("/age",name="ageverif")
      */
@@ -24,8 +25,12 @@ class PageController extends AbstractController
     {
         if ($_GET['id'] >=17) {
             $articles = $articleRepository->findAll();
-            return $this->render('list.html.twig', [
+            $articlesCount = count($articles);
+            $lastItems = array_reverse(array_slice($articles, ($articlesCount - 3)));
+
+            return $this->render('homeArticles.html.twig', [
                 "articles" => $articles,
+                'lastItems' => $lastItems
             ]);
         }
         else {

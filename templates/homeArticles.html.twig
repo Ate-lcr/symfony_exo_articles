@@ -4,7 +4,7 @@
 
 {% block main %}
 
-{% for article in articles [:3] %}
+{% for article in lastItems %}
     {% include  '_article.html.twig' %}
 {% endfor %}
 
