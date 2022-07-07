@@ -46,7 +46,7 @@ class ArticleController extends AbstractController
     public function showArticle(ArticleRepository $articleRepository, $id){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
         $article = $articleRepository->find($id);
-        return $this->render('listarticle.html.twig', [
+        return $this->render('showarticle.html.twig', [
             "article" => $article
         ]);    }
 
@@ -58,11 +58,31 @@ class ArticleController extends AbstractController
      */
     public function showArticles (ArticleRepository $articleRepository){
         $articles = $articleRepository->findAll();
-        return $this->render('list.html.twig', [
+        return $this->render('showarticles.html.twig', [
             "articles" => $articles,
         ]);
     }
 
+
+
+    //On supprime un article à l'aide de son id
+    //Mélange de ArticleRepository pour le sélectionner puis EntityManager pour le supprimer.
+    /**
+     * @Route ("article/delete/{id}", name="delete_article")
+     */
+    #[NoReturn] public function deleteArticle(ArticleRepository $articleRepository, $id, EntityManagerInterface $entityManager){
+        $article = $articleRepository->find($id);
+
+        if (!is_null($article)) {
+            $entityManager->remove($article);
+            $entityManager->flush();
+            dump('article supprimé');
+            die;
+        } else {
+            dump('article déjà supprimé');
+            die;
+        }
+    }
 
 
 }

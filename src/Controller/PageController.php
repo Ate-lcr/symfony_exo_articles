@@ -24,7 +24,7 @@ class PageController extends AbstractController
     public function age(ArticleRepository $articleRepository)
     {
         if ($_GET['id'] >=17) {
-            $lastItems = $articleRepository->findBy([], ['id' => 'DESC'], 3);
+            $lastItems = $articleRepository->findBy([], ['id' => 'DESC'], 3,0);
 
             return $this->render('homeArticles.html.twig', [
                 'lastItems' => $lastItems
@@ -95,7 +95,7 @@ class PageController extends AbstractController
 //     */
 //    public function list(): Response
 //    {
-//        return $this->render('list.html.twig', [
+//        return $this->render('showarticles.html.twig', [
 //            "articles" => $this->articles,
 //        ]);
 //    }
@@ -108,7 +108,7 @@ class PageController extends AbstractController
 //    {
 //        $article=$this->articles[$id];
 //
-//        return $this->render('listarticle.html.twig', [
+//        return $this->render('showarticle.html.twig', [
 //            "article" => $article
 //        ]);
 //    }

@@ -44,7 +44,7 @@ class CategoryController extends AbstractController
     public function showCategory(CategoryRepository $categoryRepository,$id){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
         $category = $categoryRepository->find($id);
-        return $this->render('listcategory.html.twig', [
+        return $this->render('showcategory.html.twig', [
             "category" => $category
         ]);}
 
@@ -55,7 +55,7 @@ class CategoryController extends AbstractController
      */
     public function showCategories (CategoryRepository $categoryRepository){
         $categories = $categoryRepository->findAll();
-        return $this->render('listcategories.html.twig', [
+        return $this->render('showcategories.html.twig', [
             "categories" => $categories,
         ]);
     }
