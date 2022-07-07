@@ -17,7 +17,7 @@ class PageController extends AbstractController
 {
 
 //    Route vers liste articles après verif d'age et récupération en _GET'
-//    On rajoute de quoi afficher uniquement les 3 derniers articles avec un array reverse
+//    On rajoute de quoi afficher uniquement les 3 derniers articles avec findBy
     /**
      * @Route("/age",name="ageverif")
      */
