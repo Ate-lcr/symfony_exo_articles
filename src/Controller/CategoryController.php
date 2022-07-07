@@ -39,11 +39,19 @@ class CategoryController extends AbstractController
     /**
      * @Route("category", name="category")
      */
-    public function showArticle(CategoryRepository $categoryRepository){
+    public function showCategory(CategoryRepository $categoryRepository){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
-        $category = $categoryRepository->find(id:1);
+        $category = $categoryRepository->find(1);
         dd($category);
     }
 
+
+    /**
+     * @Route("categories", name="categories")
+     */
+    public function showCategories (CategoryRepository $categoryRepository){
+        $categories = $categoryRepository->findAll();
+        dd($categories);
+    }
 
 }

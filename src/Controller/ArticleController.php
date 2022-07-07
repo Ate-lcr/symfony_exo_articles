@@ -43,7 +43,17 @@ class ArticleController extends AbstractController
      */
     public function showArticle(ArticleRepository $articleRepository){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
-        $article = $articleRepository->find(id:1);
+        $article = $articleRepository->find(1);
         dd($article);
     }
+
+
+    /**
+     * @Route("articles", name="articles")
+     */
+    public function showArticles (ArticleRepository $articleRepository){
+        $articles = $articleRepository->findAll();
+        dd($articles);
+    }
+
 }
