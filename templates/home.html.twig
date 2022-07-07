@@ -1,14 +1,25 @@
 {% extends 'base.html.twig' %}
 
+{% block header %}
+    <header>
+        <nav>
+            <div class="menu">
+                <ul>
+                    <li><a href="{{ path ('home')}}">Accueil</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+{% endblock %}
 
 {% block main %}
 
     <div class="form" style="text-align: center">
         <form method="get" action="{{ path('ageverif') }}">
-            <h1>Quel est votre age ?</h1>
+            <h1>Please enter your age below</h1>
             <br>
             <input type="text" name="id">
-            <a href="{{ path('ageverif') }}" target="_blank"><input type="submit" value="Envoyer" /></a>
+            <a href="{{ path('ageverif') }}" target="_blank"><input type="submit" value="Send" /></a>
         </form>
     </div>
 
@@ -19,4 +30,9 @@
     <div class="footer">
         <span>© Ate.lcr | Home</span>
     </div>
+{% endblock %}
+
+{% block script %}
+    <link rel="script" href="{{ asset('script.js') }}">
+
 {% endblock %}

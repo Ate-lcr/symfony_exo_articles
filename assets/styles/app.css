@@ -1,24 +1,50 @@
 @font-face {
     font-family: "Lato-Regular";
-    src: url("/assets/fonts/Lato-Regular.ttf");
+    src: url("fonts/Lato-Regular.ttf");
 }
 
 @font-face {
     font-family: "Lato-Bold";
-    src: url("/assets/fonts/Lato-Bold.ttf");
+    src: url("fonts/Lato-Bold.ttf");
 }
 
+@font-face {
+    font-family: "Lato-Black";
+    src: url("fonts/Lato-Black.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html{
+    background-color: #FCFAF9;
+}
 
 .article {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    font-family: "Lato-Bold", sans-serif;
+    text-align: center;
+
+}
+
+nav{
+    background-color: #eeeeee;
 }
 
 .menu {
     display: flex;
+    flex-direction: row;
     padding:0;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 50px;
 }
 .menu li {
     list-style-type: none ;
@@ -27,23 +53,27 @@
 
 .menu ul {
     padding: 0 ;
+    display: flex;
+    flex-direction: row;
 
 }
 .menu a {
-    display:block;
+    display:flex;
+    flex-direction: row;
     min-width: 120px;
-    margin: 0.5rem;
+    margin: 10px 5px 5px;
     padding: 0.4rem 0;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
-    color: black;
+    color: #000000;
     font-family: "Lato-Regular", sans-serif;
-    font-weight: bold;
+    text-transform: uppercase;
 }
 
 
 h3 {
     text-transform: uppercase;
+    font-family: "Lato-Black", sans-serif;
     margin-top: 20px;
     font-size: 0.8rem
 }
@@ -55,31 +85,64 @@ img {
 }
 
 .card {
-    margin: 150px 50px;
+    margin: 100px 50px 30px 50px;
     width: 500px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    background-color: #bcbcc0;
+    justify-content: center;
+    border: 1px solid #d3d2d2;
     padding-bottom: 30px;
     padding-top: 30px;
+    border-radius:3px;
 
+}
+
+.card-txt{
+    margin-bottom: 20px;
+    padding-bottom: 15px;
 }
 
 
 .btn {
-    background-color: #e1c307;
+    background-color: #a4a3a3;
     text-align: center;
-    border-radius: 3px;
     padding: 10px 45px;
     font-family: "Lato-Regular", sans-serif;
     text-decoration: none;
     color: whitesmoke;
+    border-radius: 1px;
 }
+
+
 
 .form {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: #bcbcc0;
+    margin-top: 100px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.footer{
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    padding-top:50px;
+    height:50px;
+    font-family: "Lato-Regular", sans-serif;
+    text-align: center;
+}
+
+.author{
+    font-size: 0.8rem;
+}
+
+.published{
+    font-size: 0.8rem;
 }

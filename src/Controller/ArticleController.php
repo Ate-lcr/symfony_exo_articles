@@ -26,10 +26,10 @@ class ArticleController extends AbstractController
         $article = new article();
 
 //            J'utilise les setters pour en définir les attributs
-        $article->setTitle("Essai 4");
-        $article->setContent("lorem*infinity");
+        $article->setTitle("Fifth article");
+        $article->setContent("Who let's the dogs out ?");
         $article->setIsPublished(true);
-        $article->setAuthor("Guess what, there's no author here");
+        $article->setAuthor("Do you really think someone is needed for that ?");
 
 //            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
         $entityManager->persist($article);
