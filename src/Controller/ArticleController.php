@@ -17,10 +17,11 @@ use Symfony\Config\Doctrine\Orm\EntityManagerConfig;
 class ArticleController extends AbstractController
 {
 
+
+    //On crée un nouvel enregistrement dans la table article
     /**
      * @Route ("insert-article", name="insert_article")
      */
-    //On crée un nouvel enregistrement dans la table article
     #[NoReturn] public function insertArticle(EntityManagerInterface $entityManager){
         $article = new article();
 
@@ -38,6 +39,7 @@ class ArticleController extends AbstractController
     }
 
 
+//    Affichage d'un article de ma bdd
     /**
      * @Route("article/{id}", name="article")
      */
@@ -49,6 +51,8 @@ class ArticleController extends AbstractController
         ]);    }
 
 
+
+//    Affichage de l'ensemble des articles de ma bdd
     /**
      * @Route("articles", name="articles")
      */

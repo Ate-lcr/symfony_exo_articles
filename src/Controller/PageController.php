@@ -16,6 +16,7 @@ use Symfony\Config\Doctrine\Orm\EntityManagerConfig;
 class PageController extends AbstractController
 {
 
+//    Route vers liste articles après verif d'age et récupération en _GET'
     /**
      * @Route("/age",name="ageverif")
      */
@@ -33,6 +34,7 @@ class PageController extends AbstractController
     }
 
 
+//    Route vers accueil avec formulaire de verif d'age'
     /**
      * @Route("/",name="home")
      */
@@ -43,6 +45,8 @@ class PageController extends AbstractController
 
 
 
+
+//    Anciens éléments pour la mise en place des exercices
 
 //    public array $articles = [
 //            1 => [

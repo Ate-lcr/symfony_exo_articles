@@ -36,6 +36,8 @@ class CategoryController extends AbstractController
         dump($category); die;
     }
 
+
+//    Affichage d'une catégorie issue de ma bdd
     /**
      * @Route("category", name="category")
      */
@@ -46,6 +48,8 @@ class CategoryController extends AbstractController
     }
 
 
+
+//    Affichage de l'ensemble des catégories de ma bdd
     /**
      * @Route("categories", name="categories")
      */
