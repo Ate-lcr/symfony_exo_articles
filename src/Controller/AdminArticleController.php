@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Config\Doctrine\Orm\EntityManagerConfig;
 
 
-class ArticleController extends AbstractController
+class AdminArticleController extends AbstractController
 {
 
 
@@ -46,7 +46,7 @@ class ArticleController extends AbstractController
     public function showArticle(ArticleRepository $articleRepository, $id){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
         $article = $articleRepository->find($id);
-        return $this->render('showarticle.html.twig', [
+        return $this->render('admin/showarticle.html.twig', [
             "article" => $article
         ]);    }
 
@@ -58,7 +58,7 @@ class ArticleController extends AbstractController
      */
     public function showArticles (ArticleRepository $articleRepository){
         $articles = $articleRepository->findAll();
-        return $this->render('showarticles.html.twig', [
+        return $this->render('admin/showarticles.html.twig', [
             "articles" => $articles,
         ]);
     }

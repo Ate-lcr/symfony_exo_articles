@@ -14,10 +14,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Config\Doctrine\Orm\EntityManagerConfig;
 
 
-class CategoryController extends AbstractController
+class AdminCategoryController extends AbstractController
 {
     /**
-     * @Route ("insert-category", name="insert_category")
+     * @Route ("/admin/insert-category", name="admin_insert_category")
      */
     //On crée un nouvel enregistrement dans la table article
     #[NoReturn] public function insertCategory(EntityManagerInterface $entityManager){
@@ -39,23 +39,23 @@ class CategoryController extends AbstractController
 
 //    Affichage d'une catégorie issue de ma bdd
     /**
-     * @Route("category/{id}", name="category")
+     * @Route("/admin/category/{id}", name="admin_category")
      */
     public function showCategory(CategoryRepository $categoryRepository,$id){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
         $category = $categoryRepository->find($id);
-        return $this->render('showcategory.html.twig', [
+        return $this->render('admin/showcategory.html.twig', [
             "category" => $category
         ]);}
 
 
 //    Affichage de l'ensemble des catégories de ma bdd
     /**
-     * @Route("categories", name="categories")
+     * @Route("/admin/categories", name="admin_categories")
      */
     public function showCategories (CategoryRepository $categoryRepository){
         $categories = $categoryRepository->findAll();
-        return $this->render('showcategories.html.twig', [
+        return $this->render('admin/showcategories.html.twig', [
             "categories" => $categories,
         ]);
     }
