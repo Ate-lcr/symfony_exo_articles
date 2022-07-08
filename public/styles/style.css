@@ -109,6 +109,17 @@ img {
     border-radius: 1px;
 }
 
+.btn2 {
+    background-color: #ff6e6e;
+    text-align: center;
+    padding: 10px 45px;
+    font-family: "Lato-Regular", sans-serif;
+    text-decoration: none;
+    color: whitesmoke;
+    border-radius: 1px;
+}
+
+
 
 .out {
     margin-top: 120px;

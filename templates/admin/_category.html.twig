@@ -10,6 +10,7 @@
                     <p class="published">Description : {{category.description}}</p>
                 </div>
                 <a class="btn" href= {{ path ('admin_category', {'id': category.id}) }}>Lire plus</a>
+                <a class="btn2" href= {{ path ('admin_delete_category', {'id': category.id}) }}>Supprimer la categorie</a>
             </div>
         </div>
     </div>

@@ -39,8 +39,7 @@ nav{
 .menu {
     display: flex;
     flex-direction: row;
-    padding:0;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-left: 50px;
 }
 .menu li {
@@ -57,9 +56,9 @@ nav{
 .menu a {
     display:flex;
     flex-direction: row;
-    min-width: 120px;
-    margin: 10px 5px 5px;
-    padding: 0.4rem 0;
+    margin: 10px 5px;
+    padding-right: 50px;
+    padding-left: 50px;
     text-align: left;
     text-decoration: none;
     color: #000000;
@@ -110,7 +109,21 @@ img {
     border-radius: 1px;
 }
 
+.btn2 {
+    background-color: #ff6e6e;
+    text-align: center;
+    padding: 10px 45px;
+    font-family: "Lato-Regular", sans-serif;
+    text-decoration: none;
+    color: whitesmoke;
+    border-radius: 1px;
+}
 
+
+
+.out {
+    margin-top: 120px;
+}
 
 .form {
     display: flex;
@@ -122,13 +135,14 @@ img {
 main {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
 
 }
 
 .footer{
     position:absolute;
-    bottom:0px;
+    bottom:0;
     width:100%;
     padding-top:50px;
     height:50px;

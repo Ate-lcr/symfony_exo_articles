@@ -11,6 +11,8 @@
                     <p class="published">Cet article a été publie le {{ "now"|date("m/d/Y") }}</p>
                 </div>
                 <a class="btn" href= {{ path ('admin_article', {'id': article.id}) }}>Lire plus</a>
+                <a class="btn2" href= {{ path ('admin_delete_article', {'id': article.id}) }}>Supprimer l'article</a>
+
             </div>
         </div>
     </div>

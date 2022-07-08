@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use JetBrains\PhpStorm\NoReturn;
@@ -60,4 +61,21 @@ class AdminCategoryController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route ("/admin/category/delete/{id}", name="admin_delete_category")
+     */
+    #[NoReturn] public function deleteCategory(CategoryRepository $categoryRepository, $id, EntityManagerInterface $entityManager){
+        $category = $categoryRepository->find($id);
+
+        if (!is_null($category)) {
+            $entityManager->remove($category);
+            $entityManager->flush();
+            dump('category supprimé');
+            die;
+        } else {
+            dump('category déjà supprimé');
+            die;
+        }
+    }
 }
