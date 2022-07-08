@@ -1,3 +1,4 @@
 console.log("coucou");
 
-document.querySelector("btn")->style
+document.querySelector("btn")
+elm.style.display = none;

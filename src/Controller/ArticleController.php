@@ -84,5 +84,24 @@ class ArticleController extends AbstractController
         }
     }
 
+    //On modifie (update) un article à l'aide de son id
+    //Mélange de ArticleRepository pour le sélectionner puis EntityManager pour le modifier.
+    /**
+     * @Route ("article/update/{id}", name="update_article")
+     */
+    public function updateArticle(ArticleRepository $articleRepository, $id, EntityManagerInterface $entityManager){
+        $article = $articleRepository->find($id);
+        $article->setTitle("updated article");
+        $article->setContent("Who let's the cats out ?");
+        $article->setIsPublished(true);
+        $article->setAuthor("Probably someone");
+
+//            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
+        $entityManager->persist($article);
+        $entityManager->flush();
+        dump('article modifié');
+        die;
+    }
+
 
 }
