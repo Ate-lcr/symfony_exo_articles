@@ -26,15 +26,16 @@ class AdminArticleController extends AbstractController
         $article = new article();
 
 //            J'utilise les setters pour en définir les attributs
-        $article->setTitle("Fifth article");
-        $article->setContent("Who let's the dogs out ?");
+        $article->setTitle($_GET['title']);
+        $article->setContent($_GET['content']);
         $article->setIsPublished(true);
-        $article->setAuthor("Do you really think someone is needed for that ?");
+        $article->setAuthor($_GET['author']);
 
 //            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
         $entityManager->persist($article);
         $entityManager->flush();
 
+        $this->addFlash('success', "Vous avez bien ajouté l'article!");
         return $this->redirectToRoute('admin_articles');
     }
 
@@ -76,10 +77,12 @@ class AdminArticleController extends AbstractController
         if (!is_null($article)) {
             $entityManager->remove($article);
             $entityManager->flush();
+            $this->addFlash('success', "Vous avez bien supprimé l'article!");
             return $this->redirectToRoute('admin_articles');
+
         } else {
-            dump('article déjà supprimé');
-            die;
+            $this->addFlash('success', "Cet article est déjà supprimé!");
+            return $this->redirectToRoute('admin_articles');
         }
     }
 
@@ -98,9 +101,20 @@ class AdminArticleController extends AbstractController
 //            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
         $entityManager->persist($article);
         $entityManager->flush();
-        dump('article modifié');
-        die;
+        $this->addFlash('success', "Vous avez bien mis à jour votre article!");
+        return $this->redirectToRoute('admin_articles');
     }
 
 
-}
+    /**
+     * @Route ("/admin/create", name="admin_create")
+     */
+    public function createArticles ()
+    {
+        return $this->render('admin/createarticle.html.twig', [
+        ]);
+    }
+
+
+
+    }

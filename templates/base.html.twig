@@ -21,6 +21,7 @@
                 <li><a href="{{ path ('home')}}">Accueil</a></li>
                 <li><a href="{{ path ('admin_articles')}}">Liste des articles</a></li>
                 <li><a href="{{ path ('admin_categories')}}">Liste des categories</a></li>
+                <li class="create"><a href="{{ path ('admin_create')}}">Créer un article</a></li>
 
             </ul>
         </div>
@@ -28,6 +29,9 @@
 </header>
 {% endblock %}
 
+{% for message in app.flashes('success') %}
+<p>{{ message }}</p>
+{% endfor %}
 
 <body>
 <div class="article">
