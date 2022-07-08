@@ -120,6 +120,16 @@ img {
 }
 
 
+.btn3 {
+    background-color: #64c4d3;
+    text-align: center;
+    padding: 10px 45px;
+    font-family: "Lato-Regular", sans-serif;
+    text-decoration: none;
+    color: whitesmoke;
+    border-radius: 1px;
+}
+
 
 .out {
     margin-top: 120px;
