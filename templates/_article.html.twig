@@ -10,7 +10,7 @@
                     <p class="author">By: {{article.author}}</p>
                     <p class="published">Cet article a été publie le {{ "now"|date("m/d/Y") }}</p>
                 </div>
-                <a class="btn" href= {{ path ('article', {'id': article.id}) }}>Lire plus</a>
+                <a class="btn" href= {{ path ('admin_article', {'id': article.id}) }}>Lire plus</a>
             </div>
         </div>
     </div>

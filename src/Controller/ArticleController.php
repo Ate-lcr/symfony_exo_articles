@@ -20,7 +20,7 @@ class ArticleController extends AbstractController
 
     //On crée un nouvel enregistrement dans la table article
     /**
-     * @Route ("insert-article", name="insert_article")
+     * @Route ("/admin/insert-article", name="admin_insert_article")
      */
     #[NoReturn] public function insertArticle(EntityManagerInterface $entityManager){
         $article = new article();
@@ -41,7 +41,7 @@ class ArticleController extends AbstractController
 
 //    Affichage d'un article de ma bdd
     /**
-     * @Route("article/{id}", name="article")
+     * @Route("/admin/article/{id}", name="admin_article")
      */
     public function showArticle(ArticleRepository $articleRepository, $id){
 //        La méthode "find" me permet de récupérer un élément par la valeur que je lui passe en attribut)
@@ -54,7 +54,7 @@ class ArticleController extends AbstractController
 
 //    Affichage de l'ensemble des articles de ma bdd
     /**
-     * @Route("articles", name="articles")
+     * @Route("/admin/articles", name="admin_articles")
      */
     public function showArticles (ArticleRepository $articleRepository){
         $articles = $articleRepository->findAll();
@@ -68,7 +68,7 @@ class ArticleController extends AbstractController
     //On supprime un article à l'aide de son id
     //Mélange de ArticleRepository pour le sélectionner puis EntityManager pour le supprimer.
     /**
-     * @Route ("article/delete/{id}", name="delete_article")
+     * @Route ("/admin/article/delete/{id}", name="admin_delete_article")
      */
     #[NoReturn] public function deleteArticle(ArticleRepository $articleRepository, $id, EntityManagerInterface $entityManager){
         $article = $articleRepository->find($id);
@@ -87,7 +87,7 @@ class ArticleController extends AbstractController
     //On modifie (update) un article à l'aide de son id
     //Mélange de ArticleRepository pour le sélectionner puis EntityManager pour le modifier.
     /**
-     * @Route ("article/update/{id}", name="update_article")
+     * @Route ("/admin/article/update/{id}", name="admin_update_article")
      */
     public function updateArticle(ArticleRepository $articleRepository, $id, EntityManagerInterface $entityManager){
         $article = $articleRepository->find($id);
