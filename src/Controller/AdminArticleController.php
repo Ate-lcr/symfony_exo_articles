@@ -35,7 +35,7 @@ class AdminArticleController extends AbstractController
         $entityManager->persist($article);
         $entityManager->flush();
 
-        dump($article); die;
+        return $this->redirectToRoute('admin_articles');
     }
 
 
@@ -76,8 +76,7 @@ class AdminArticleController extends AbstractController
         if (!is_null($article)) {
             $entityManager->remove($article);
             $entityManager->flush();
-            dump('article supprimé');
-            die;
+            return $this->redirectToRoute('admin_articles');
         } else {
             dump('article déjà supprimé');
             die;
