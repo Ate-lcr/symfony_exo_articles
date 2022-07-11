@@ -89,8 +89,11 @@ class AdminCategoryController extends AbstractController
      */
     public function createCategory ()
     {
+//        Je crée une nouvelle instance de l'objet category'
         $category = new category();
+//        Comme j'ai crée via le terminal mon patron de formulaire CategoryType je peux l'utiliser pour créer un formulaire correspondant à cette table/entité
         $form=$this->createform(CategoryType::class, $category);
+//        J'envoie dans la vue la variable $form qui contient mon formulaire
         return $this->render("admin/createcategory.html.twig", [
             'form'=> $form->createview()
         ]);
