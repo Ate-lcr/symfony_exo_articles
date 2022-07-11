@@ -25,9 +25,9 @@ class AdminCategoryController extends AbstractController
         $category = new Category();
 
 //            J'utilise les setters pour en définir les attributs
-        $category->setTitle("Eco");
-        $category->setColor("Lightgreen");
-        $category->setDescription("Ecology");
+        $category->setTitle($_GET['title']);
+        $category->setColor($_GET['color']);
+        $category->setDescription($_GET['description']);
         $category->setisPublished(true);
 
 //            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
@@ -80,4 +80,15 @@ class AdminCategoryController extends AbstractController
             return $this->redirectToRoute('admin_categories');
         }
     }
+
+
+    /**
+     * @Route ("/admin/new-category", name="admin_new-category")
+     */
+    public function createCategory ()
+    {
+        return $this->render('admin/createcategory.html.twig', [
+        ]);
+    }
+
 }
