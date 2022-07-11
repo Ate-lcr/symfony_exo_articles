@@ -19,12 +19,12 @@ class AdminArticleController extends AbstractController
 {
 
 
-    //On crée un nouvel enregistrement dans la table article
-    /**
-     * @Route ("/admin/insert-article", name="admin_insert_article")
-     */
-    #[NoReturn] public function insertArticle(EntityManagerInterface $entityManager){
-        $article = new article();
+//    //On crée un nouvel enregistrement dans la table article
+//    /**
+//     * @Route ("/admin/insert-article", name="admin_insert_article")
+//     */
+//    #[NoReturn] public function insertArticle(EntityManagerInterface $entityManager){
+//        $article = new article();
 
 
 
@@ -40,7 +40,7 @@ class AdminArticleController extends AbstractController
 //
 //        $this->addFlash('success', "Vous avez bien ajouté l'article!");
 //        return $this->redirectToRoute('admin_articles');
-    }
+//    }
 
 
 //    Affichage d'un article de ma bdd
@@ -112,12 +112,25 @@ class AdminArticleController extends AbstractController
     /**
      * @Route ("/admin/create", name="admin_create")
      */
-    public function createArticles ()
+    public function createArticles (Request $request, EntityManagerInterface $entityManager)
     {
         $article = new article();
         $form=$this->createform(ArticleType::class, $article);
+
+//        On donne à la variable qui contient le formulaire une instance de la classe Request pour que le formulaire
+//        puisse récupérer toutes les données des inputs et faire les setters sur les articles automatiquement
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+            $this->addFlash('success', "Article enregistré!");
+        }
+
         return $this->render("admin/createarticle.html.twig", [
             'form'=> $form->createview()
+
         ]);
 
 
