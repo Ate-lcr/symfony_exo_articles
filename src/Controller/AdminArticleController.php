@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use JetBrains\PhpStorm\NoReturn;
@@ -25,18 +26,20 @@ class AdminArticleController extends AbstractController
     #[NoReturn] public function insertArticle(EntityManagerInterface $entityManager){
         $article = new article();
 
-//            J'utilise les setters pour en définir les attributs
-        $article->setTitle($_GET['title']);
-        $article->setContent($_GET['content']);
-        $article->setIsPublished(true);
-        $article->setAuthor($_GET['author']);
 
-//            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
-        $entityManager->persist($article);
-        $entityManager->flush();
 
-        $this->addFlash('success', "Vous avez bien ajouté l'article!");
-        return $this->redirectToRoute('admin_articles');
+////            J'utilise les setters pour en définir les attributs
+//        $article->setTitle($_GET['title']);
+//        $article->setContent($_GET['content']);
+//        $article->setIsPublished(true);
+//        $article->setAuthor($_GET['author']);
+//
+////            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
+//        $entityManager->persist($article);
+//        $entityManager->flush();
+//
+//        $this->addFlash('success', "Vous avez bien ajouté l'article!");
+//        return $this->redirectToRoute('admin_articles');
     }
 
 
@@ -111,8 +114,18 @@ class AdminArticleController extends AbstractController
      */
     public function createArticles ()
     {
-        return $this->render('admin/createarticle.html.twig', [
+        $article = new article();
+        $form=$this->createform(ArticleType::class, $article);
+        return $this->render("admin/createarticle.html.twig", [
+            'form'=> $form->createview()
         ]);
+
+
+
+
+
+//        return $this->render('admin/createarticle.html.twig', [
+//        ]);
     }
 
 

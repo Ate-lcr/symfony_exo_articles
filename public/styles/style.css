@@ -206,3 +206,8 @@ main {
     text-align: center;
 
 }
+.tryform div {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}

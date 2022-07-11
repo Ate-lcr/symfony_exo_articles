@@ -2,24 +2,9 @@
 
 
 {% block main %}
-
-    <div class="form" style="text-align: center">
-        <form method="get" action="{{ path('admin_insert_article') }}">
-            <h1>Nouvel article</h1>
-            <br>
-            <input type="text" name="title" placeholder="Title">
-            <br>
-            <br>
-            <input type="text" name="author" placeholder="Author">
-            <br>
-            <br>
-            <input type="text" name="content" placeholder="Content">
-            <br>
-            <br>
-            <a href="{{ path('admin_insert_article') }}" target="_blank"><input type="submit" value="Send" /></a>
-        </form>
-    </div>
-
+<div class="tryform">
+    {{ form (form) }}
+</div>
 {% endblock %}
 
 

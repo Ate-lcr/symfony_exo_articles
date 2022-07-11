@@ -2,27 +2,10 @@
 
 
 {% block main %}
-
-    <div class="form" style="text-align: center">
-        <form method="get" action="{{ path('admin_insert_category') }}">
-            <h1>Nouvelle catégorie</h1>
-            <br>
-            <input type="text" name="title" placeholder="Title">
-            <br>
-            <br>
-            <input type="text" name="color" placeholder="Color">
-            <br>
-            <br>
-            <input type="text" name="description" placeholder="Description">
-            <br>
-            <br>
-
-            <a href="{{ path('admin_insert_category') }}" target="_blank"><input type="submit" value="Send" /></a>
-        </form>
+    <div class="tryform">
+        {{ form (form) }}
     </div>
-
 {% endblock %}
-
 
 {% block footer %}
     <div class="footer">

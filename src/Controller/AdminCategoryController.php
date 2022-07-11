@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Form\ArticleType;
+use App\Form\CategoryType;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -87,7 +89,10 @@ class AdminCategoryController extends AbstractController
      */
     public function createCategory ()
     {
-        return $this->render('admin/createcategory.html.twig', [
+        $category = new category();
+        $form=$this->createform(CategoryType::class, $category);
+        return $this->render("admin/createcategory.html.twig", [
+            'form'=> $form->createview()
         ]);
     }
 
