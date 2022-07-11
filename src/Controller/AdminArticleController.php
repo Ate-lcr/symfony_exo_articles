@@ -94,22 +94,30 @@ class AdminArticleController extends AbstractController
     /**
      * @Route ("/admin/article/update/{id}", name="admin_update_article")
      */
-    public function updateArticle(ArticleRepository $articleRepository, $id, EntityManagerInterface $entityManager){
+    public function updateArticle(ArticleRepository $articleRepository, $id, EntityManagerInterface $entityManager, Request $request)
+    {
         $article = $articleRepository->find($id);
-        $article->setTitle("updated article");
-        $article->setContent("Who let's the cats out ?");
-        $article->setIsPublished(true);
-        $article->setAuthor("Probably someone");
+        $form = $this->createform(ArticleType::class, $article);
 
-//            On fait une sauvegarde(bdd) avant de faire l'inscription en bdd'
-        $entityManager->persist($article);
-        $entityManager->flush();
-        $this->addFlash('success', "Vous avez bien mis à jour votre article!");
-        return $this->redirectToRoute('admin_articles');
+//        On donne à la variable qui contient le formulaire une instance de la classe Request pour que le formulaire
+//        puisse récupérer toutes les données des inputs et faire les setters sur les articles automatiquement
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+            $this->addFlash('success', "Article enregistré!");
+        }
+
+        return $this->render("admin/createarticle.html.twig", [
+            'form' => $form->createview()
+
+        ]);
     }
 
 
-    /**
+        /**
      * @Route ("/admin/create", name="admin_create")
      */
     public function createArticles (Request $request, EntityManagerInterface $entityManager)

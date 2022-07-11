@@ -95,7 +95,7 @@ class AdminCategoryController extends AbstractController
         $form=$this->createform(CategoryType::class, $category);
 
         //        On donne à la variable qui contient le formulaire une instance de la classe Request pour que le formulaire
-//        puisse récupérer toutes les données des inputs et faire les setters sur les articles automatiquement
+//        puisse récupérer toutes les données des inputs et faire les setters sur les articles en direct
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
@@ -108,6 +108,31 @@ class AdminCategoryController extends AbstractController
 //        J'envoie dans la vue la variable $form qui contient mon formulaire
         return $this->render("admin/createcategory.html.twig", [
             'form'=> $form->createview()
+        ]);
+    }
+
+    /**
+     * @Route ("/admin/category/update/{id}", name="admin_update_category")
+     */
+    public function updateCategory(CategoryRepository $categoryRepository, $id, EntityManagerInterface $entityManager, Request $request)
+    {
+        $category = $categoryRepository->find($id);
+        $form = $this->createform(CategoryType::class, $category);
+
+//        On donne à la variable qui contient le formulaire une instance de la classe Request pour que le formulaire
+//        puisse récupérer toutes les données des inputs et faire les setters sur les articles automatiquement
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($category);
+            $entityManager->flush();
+
+            $this->addFlash('success', "Catégorie modifiée!");
+        }
+
+        return $this->render("admin/createcategory.html.twig", [
+            'form' => $form->createview()
+
         ]);
     }
 

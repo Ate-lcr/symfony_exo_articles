@@ -8,6 +8,11 @@
                     <h3>{{ category.title }}</h3>
                     <p class="author">Color: {{category.color}}</p>
                     <p class="published">Description : {{category.description}}</p>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="btn" href= {{ path ('admin_update_category', {'id': category.id}) }}>Modifier la catégorie</a>
+
                 </div>
                 <a class="btn" href= {{ path ('admin_category', {'id': category.id}) }}>Lire plus</a>
                 <a class="btn2" href= {{ path ('admin_delete_category', {'id': category.id}) }}>Supprimer la categorie</a>
