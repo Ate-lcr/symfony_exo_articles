@@ -8,6 +8,11 @@
                 <div class="card-txt">
                     <h3>{{ article.title }}</h3>
                     <p class="author">By: {{article.author}}</p>
+                    {% if article.category %}
+                        <p>{{ article.category.title }}</p>
+                    {% else %}
+                        <p>Pas de catégorie</p>
+                    {% endif %}
                     <p class="published">Cet article a été publie le {{ "now"|date("m/d/Y") }}</p>
                 </div>
                 <a class="btn" href= {{ path ('admin_article', {'id': article.id}) }}>Lire plus</a>
