@@ -136,6 +136,8 @@ img {
     background-color: #a4a3a3;
     text-align: center;
     padding: 10px 45px;
+    margin-top: 10px;
+
     font-family: "Lato-Regular", sans-serif;
     text-decoration: none;
     color: whitesmoke;
@@ -144,6 +146,7 @@ img {
 
 .btn2 {
     background-color: #ff6e6e;
+    margin-top: 10px;
     text-align: center;
     padding: 10px 45px;
     font-family: "Lato-Regular", sans-serif;
@@ -151,7 +154,10 @@ img {
     color: whitesmoke;
     border-radius: 1px;
 }
-
+.btns{
+    display: flex;
+    flex-direction: column;
+}
 
 .btn3 {
     background-color: #64c4d3;

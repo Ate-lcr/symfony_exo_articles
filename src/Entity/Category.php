@@ -37,6 +37,18 @@ class Category
      */
     private $isPublished;
 
+
+    /**
+     * @ORM\OneToMany (targetEntity="App\Entity\Article",mappedBy="category")
+     */
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -88,5 +100,16 @@ class Category
         $this->isPublished = $isPublished;
 
         return $this;
+    }
+
+
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    public function setArticles($articles): void
+    {
+        $this->articles = $articles;
     }
 }
