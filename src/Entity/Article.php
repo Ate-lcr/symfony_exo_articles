@@ -42,6 +42,8 @@ class Article
      */
     private $content;
 
+
+//    J'ajoute une méthode pour créer une contrainte de clé etrangère sur mes articles (avec les ID de catégorie)'
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category")
      */

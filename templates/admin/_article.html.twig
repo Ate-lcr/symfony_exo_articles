@@ -8,6 +8,7 @@
                 <div class="card-txt">
                     <h3>{{ article.title }}</h3>
                     <p class="author">By: {{article.author}}</p>
+{#                    je peux appeler mes titres de catégories si une catégorie est bien affectée à l'article depuis l'ajout de la méthode FK#}
                     {% if article.category %}
                         <p>{{ article.category.title }}</p>
                     {% else %}
