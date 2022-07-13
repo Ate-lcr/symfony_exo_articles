@@ -38,6 +38,8 @@ class Category
     private $isPublished;
 
 
+//    On peut utiliser doctrine et la commande make:entity pour demander à créer des relations entre les tables
+//Plusieurs éléments pour une cardinalité (mapping avec ORM/si One to many-> constructeur pour déclarer les instances d'objets dans un array/getters et setters si méthode privée )
     /**
      * @ORM\OneToMany (targetEntity="App\Entity\Article",mappedBy="category")
      */
