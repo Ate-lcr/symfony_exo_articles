@@ -38,6 +38,26 @@ class ArticleRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function searchByWord($search)
+    {
+
+        // j'instancie un query builder afin de faire des requetes SQL en php
+        $qb = $this->createQueryBuilder('article');
+
+        // je fais une requete select sur ma table article
+        $query = $qb->select('article')
+            // je récupère les article dont le titre correspond à :"marecherche"
+            ->where('article.title LIKE :search')
+            // je défini la valeur de :marecherche, il peut contenir des caractères avant et après
+            // setParametre pour sécuriser via Doctrine Symfony (éviter injections SQL ++)
+            ->setParameter('search', '%'.$search.'%')
+            // je récupère la requête
+            ->getQuery();
+
+        // je l'execute en bdd !
+        return $query->getResult();
+    }
+
 
 //    /**
 //     * @return Article[] Returns an array of Article objects
